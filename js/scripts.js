@@ -14,16 +14,35 @@ var primeGenerator = function(number) {
   }
 
   var numberList = listOfNumbers(number);
-  
+  var primeArray = [];
 
-  for(var prime = 2; prime < number; prime++) {
-    for (number of numberList) {
+  for (number of numberList) {
+    var count = 0;
+    for (var prime = 2; prime <= number; prime++) {
       if (number % prime === 0){
-        var index = numberList.indexOf(number);
-        numberList.splice(index,1);
+        count ++;
       }
     }
+    if (count === 1){
+      primeArray.push(number);
+    }
   }
-  return numberList;
+  return primeArray;
 
 };
+
+$(document).ready(function() {
+  $('form#prime').submit(function(event) {
+    var number = parseInt($('input#number').val());
+    var result = primeGenerator(number);
+
+    $('.number').empty();
+    $('.prime_numbers').empty();
+
+    $('.number').text(number);
+    $('.prime_numbers').text(result);
+
+    $('#result').show();
+    event.preventDefault();
+  })
+});

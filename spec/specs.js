@@ -8,14 +8,11 @@ describe('primeGenerator', function() {
   });
 
   it("if given 3 return 3", function() {
-    expect(primeGenerator(3)).to.eql([3]);
+    expect(primeGenerator(3)).to.eql([2, 3]);
   });
 
-  it("if given 3 return 3", function() {
-    expect(primeGenerator(18)).to.eql([17]);
+  it("if given 10 return 2,3,5,7", function() {
+    expect(primeGenerator(10)).to.eql([2, 3, 5, 7]);
   });
 
-  it("if given  return 998", function() {
-    expect(primeGenerator(998)).to.eql([997]);
-  });
 });
