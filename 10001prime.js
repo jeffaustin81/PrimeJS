@@ -2,7 +2,8 @@ var primeGenerator = function() {
 
   var end = 10001;
   var primeCount = 0;
-  var number = 2;
+  var number = 1;
+  var arrayOfPrimes = [];
 
   while (primeCount < 10001) {
     var count = 0;
@@ -13,8 +14,9 @@ var primeGenerator = function() {
     }
     if (count === 1){
       primeCount++;
+      arrayOfPrimes.push(number);
     }
-    number++;
+    number+=2;
   }
   return number - 1;
 

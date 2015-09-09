@@ -1,35 +1,27 @@
-var listOfNumbers = function(range_number) {
-  var listNumbers = [];
-  for (var i=2; i<=range_number;i++) {
-    listNumbers.push(i);
-  }
-  return listNumbers;
-};
-
-
-
 var primeGenerator = function(number) {
-  if (number === 2) {
-    return 2;
-  }
 
-  var numberList = listOfNumbers(number);
-  var primeArray = [];
+  var end = 10001;
+  var primeCount = 0;
+  var number1 = 1;
+  var arrayOfPrimes = [];
 
-  for (number of numberList) {
+  while (number1 < number) {
     var count = 0;
-    for (var prime = 2; prime <= number; prime++) {
-      if (number % prime === 0){
+    for (var i = 1; i <= Math.ceil(Math.sqrt(number1)); i+=2) {
+      if (number1 % i === 0){
         count ++;
       }
     }
     if (count === 1){
-      primeArray.push(number);
+      primeCount++;
+      arrayOfPrimes.push(number1);
     }
+    number1+=2;
   }
-  return primeArray;
+  return arrayOfPrimes;
 
 };
+
 
 $(document).ready(function() {
   $('form#prime').submit(function(event) {
